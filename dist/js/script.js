@@ -155,6 +155,26 @@ xmlhttp.send();
 
 
 
+
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myArr = JSON.parse(this.responseText);
+    document.getElementById("america").innerHTML = myArr["cases"];
+
+  }
+};
+xmlhttp.open("GET", "https://disease.sh/v2/continents/north%20america?yesterday=false", true);
+xmlhttp.send();
+
+
+
+
+
+
+
+
  
 
 
