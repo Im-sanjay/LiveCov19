@@ -10,7 +10,9 @@
   <meta name="description" content="Live statistics and coronavirus news tracking the number of confirmed cases, recovered patients, tests, and death toll due to the COVID-19 coronavirus from Wuhan, China. Coronavirus counter with new cases, deaths, and number of tests per 1 Million population. Historical data and info. Daily charts, graphs, news and updates">
 
 
-
+<link rel="icon" 
+      type="image/png" 
+      href="download.png" />
 
   <meta name="keywords" content="coronavirus, covid-19, tracker, dashboard, preperation, prevention, trends, statistics, data , live data , coronavirus , live data , LiveCov19 " />
 
@@ -945,17 +947,17 @@
       <script>
             var selectElem = document.getElementById("select");
             $.ajax({
-  url: 'https://api.rootnet.in/covid19-in/stats/latest',
-  dataType: 'json',
-  success: function(res) {
-        selectElem.addEventListener('change', function() {
-        var i = selectElem.selectedIndex;
-        $("#s").text(res.data.regional[i].loc);
-        $("#s1").text(res.data.regional[i].totalConfirmed);
-        $("#s2").text(res.data.regional[i].deaths);
-        $("#s3").text(res.data.regional[i].discharged);
-         $("#s4").text((res.data.regional[0].totalConfirmed-res.data.regional[0].deaths));
-         $("#total").text(res.data.summary.total);
+            url: 'https://api.rootnet.in/covid19-in/stats/latest',
+            dataType: 'json',
+            success: function(res) {
+                  selectElem.addEventListener('change', function() {
+                  var i = selectElem.selectedIndex;
+                  $("#s").text(res.data.regional[i].loc);
+                  $("#s1").text(res.data.regional[i].totalConfirmed);
+                  $("#s2").text(res.data.regional[i].deaths);
+                  $("#s3").text(res.data.regional[i].discharged);
+                   $("#s4").text((res.data.regional[0].totalConfirmed-res.data.regional[0].deaths));
+                   $("#total").text(res.data.summary.total);
 });
 }
 });

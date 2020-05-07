@@ -1,5 +1,7 @@
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                   world data 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// unofficial data india 
 $.ajax({
   url: 'https://api.thevirustracker.com/free-api?countryTotal=IN',
   dataType: 'json',
@@ -17,6 +19,9 @@ $.ajax({
 });
 
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//       india 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $.ajax({
   url: 'https://api.rootnet.in/covid19-in/stats/latest',
@@ -35,45 +40,6 @@ $.ajax({
 
 
 
-
-$.ajax({
-  url: 'https://api.covid19india.org/state_district_wise.json',
-  dataType: 'json',
-  success: function(res) {
-    $(document).ready(function(){
-        // $("#district").text([0].districtData[0].district);
-        // $("#s1").text(res.data.regional[0].totalConfirmed);
-        // $("#s2").text(res.data.regional[0].deaths);
-        // $("#s3").text(res.data.regional[0].discharged);
-        // $("#s4").text(res.data.regional[0].totalConfirmed -deaths-discharged);
-        // console.log(res.Andaman and Nicobar Islands)
-    });
-}
-});
-
-
-
-
-
-
-
-$.ajax({
-  url: 'https://corona.lmao.ninja/v2/all?yesterday=false',
-  dataType: 'json',
-  success: function(data) {
-    $(document).ready(function(){
-    // $(".world").text(cases)
-
-   // $(".total_india_case").text(data.countrydata[0].total_cases)
-   // $(".total_india_death").text(data.countrydata[0].total_deaths)
-   // $(".total_india_recovered").text(data.countrydata[0].total_recovered)
-   // $(".total_india_active").text(data.countrydata[0].total_active_cases)
-   // $(".total_india_active_today").text(data.countrydata[0].total_new_cases_today)
-   // $(".total_india_deaths_today").text(data.countrydata[0].total_new_deaths_today)
-   // $(".test").text((data.countrydata[0].total_new_deaths_today+data.countrydata[0].total_new_cases_today))
-});
-  }
-});
 
 
 
@@ -157,16 +123,16 @@ xmlhttp.send();
 
 
 
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    var myArr = JSON.parse(this.responseText);
-    document.getElementById("america").innerHTML = myArr["cases"];
+// var xmlhttp = new XMLHttpRequest();
+// xmlhttp.onreadystatechange = function() {
+//   if (this.readyState == 4 && this.status == 200) {
+//     var myArr = JSON.parse(this.responseText);
+//     document.getElementById("america").innerHTML = myArr["cases"];
 
-  }
-};
-xmlhttp.open("GET", "https://disease.sh/v2/continents/north%20america?yesterday=false", true);
-xmlhttp.send();
+//   }
+// };
+// xmlhttp.open("GET", "https://disease.sh/v2/continents/north%20america?yesterday=false", true);
+// xmlhttp.send();
 
 
 
