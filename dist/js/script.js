@@ -1,7 +1,4 @@
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//                   world data 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+// ++++++++++++++++++    world data +++++++++++++++++++++++++++++++++++++++++++++++++++++
 $.ajax({
   url: 'https://api.thevirustracker.com/free-api?countryTotal=IN',
   dataType: 'json',
@@ -19,10 +16,7 @@ $.ajax({
 });
 
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//       india 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+// ++++++++++++++++++++++++++++ india   ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $.ajax({
   url: 'https://api.rootnet.in/covid19-in/stats/latest',
   dataType: 'json',
@@ -38,15 +32,7 @@ $.ajax({
 }
 });
 
-
-
-
-
-
-
-
-
-
+// ++++++++++++++++++++++++++++++++++++ WORLD today data ++++++++++++++++++++++++++++++++++++
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
@@ -70,6 +56,60 @@ xmlhttp.send();
 
 
 
+// ++++++++++++++++++++++++++++++++++++ WORLD yesterday data ++++++++++++++++++++++++++++++++++++
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var myArry = JSON.parse(this.responseText);
+    document.getElementById("yesterday_confirm").innerHTML = myArry["cases"];
+    document.getElementById("yesterday_confirmcase").innerHTML = "+" + myArry["todayCases"] + "  yesterday";
+    document.getElementById("yesterday_deaths").innerHTML = myArry["deaths"];
+    document.getElementById("yesterday_deathcase").innerHTML = "+" + myArry["todayDeaths"] + "  yesterday";
+    document.getElementById("yesterday_recovered").innerHTML = myArry["recovered"] ;
+    // document.getElementById("global_recover_today").innerHTML = "+" + myArr["todayRecover"] + "  today";
+    document.getElementById("yesterday_active").innerHTML =myArry["active"];
+    // document.getElementById("global_recovered").innerHTML = myArr["recovered"] ;
+    document.getElementById("yesterday_critical").innerHTML = myArry["critical"];
+    // document.getElementById("yesterday_tests").innerHTML = myArry["tests"];
+     document.getElementById("yesterday_tests").innerHTML = myArry["tests"];
+ 
+  }
+  };
+  xhttp.open("GET", "https://disease.sh/v2/all?yesterday=true", true);
+  xhttp.send();
+}
+
+
+
+
+// +++++++++++++++++   ASIA yesterday data +++++++++++++++++++++++++++++++++++++++++
+function LoadAsia() {
+  var asiaxhttp = new XMLHttpRequest();
+  asiaxhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var asia = JSON.parse(this.responseText);
+    document.getElementById("asia_yesterday_confirm").innerHTML = asia["cases"];
+    document.getElementById("asia_yesterday_confirmcase").innerHTML = "+" + asia["todayCases"] + "  yesterday";
+    document.getElementById("asia_yesterday_deaths").innerHTML = asia["deaths"];
+    document.getElementById("asia_yesterday_deathcase").innerHTML = "+" + asia["todayDeaths"] + "  yesterday";
+    document.getElementById("asia_yesterday_recovered").innerHTML = asia["recovered"] ;
+    // document.getElementById("global_recover_today").innerHTML = "+" + myArr["todayRecover"] + "  today";
+    document.getElementById("asia_yesterday_active").innerHTML =asia["active"];
+    // document.getElementById("global_recovered").innerHTML = myArr["recovered"] ;
+    document.getElementById("asia_yesterday_critical").innerHTML = asia["critical"];
+    // document.getElementById("yesterday_tests").innerHTML = myArry["tests"];
+     // document.getElementById("asia_yesterday_tests").innerHTML = asia["tests"];
+ 
+  }
+  };
+  asiaxhttp.open("GET", "https://disease.sh/v2/continents/asia?yesterday=true", true);
+  asiaxhttp.send();
+}
+
+
+
+// +++++++++++++++++++++++++ ASIA today ++++++++++++++++++++++++++++++++++++++++++++++++
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
@@ -89,6 +129,7 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "https://corona.lmao.ninja/v2/continents/asia?yesterday=false", true);
 xmlhttp.send();
+
 
 
 
