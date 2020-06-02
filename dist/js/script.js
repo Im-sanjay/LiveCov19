@@ -381,7 +381,7 @@ xmlhttp.onreadystatechange = function() {
  
   }
 };
-xmlhttp.open("GET", "https://disease.sh/v2/continents/Oceania?yesterday=false", true);
+xmlhttp.open("GET", "https://disease.sh/v2/continents/Australia%2FOceania?yesterday=false", true);
 xmlhttp.send();
 
 
@@ -407,7 +407,7 @@ function Loadoceania() {
  
   }
   };
-  oceaniaxhttp.open("GET", "https://disease.sh/v2/continents/Oceania?yesterday=true", true);
+  oceaniaxhttp.open("GET", "https://disease.sh/v2/continents/Australia%2FOceania?yesterday=true", true);
   oceaniaxhttp.send();
 }
 
